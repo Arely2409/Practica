@@ -15,11 +15,10 @@ router.post('/add', async (req, res) => {
         description
     };
     await pool.query('INSERT INTO links set ?', [newLink]);
-    console.log(newLink);
-    res.send('Recibido');
+    res.send('received');
 });
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
     const links = await pool.query('SELECT * FROM links');
     console.log(links);
     res.send('listas iran aqui');
